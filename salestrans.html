@@ -103,40 +103,54 @@
                             <button class="btn btn-primary" onclick="generateReport()">Generate Report</button>
                         </div>
                         <div class="card-body">
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="filterBranch" class="form-label">Filter by Branch</label>
-                                    <select id="filterBranch" class="form-select form-select-sm">
+                            
+                            
+                            <div class="row align-items-center mb-3">
+                                <!-- Entries Selection -->
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <label class="me-2 mb-0">Show</label>
+                                    <select class="form-select form-select-sm" style="width: auto;">
+                                        <option value="10" selected>10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                    <span class="ms-2">entries</span>
+                                </div>
+                            
+                                <!-- Search Box -->
+                                <div class="col-md-6 text-md-end">
+                                    <label class="form-label mb-0 me-2" for="searchInput">Search:</label>
+                                    <input type="search" class="form-control form-control-sm d-inline-block" style="width: auto;" id="searchInput" placeholder="Search">
+                                </div>
+                            </div>
+                            
+                            <!-- Enable Filter Toggle -->
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="enableFilterToggle" onclick="toggleFilterVisibility()">
+                                <label class="form-check-label" for="enableFilterToggle">Enable Filter</label>
+                            </div>
+                            
+                            <!-- Filter Section -->
+                            <div id="filterSection" class="row align-items-center mb-3" style="display: none;">
+                                <!-- Filter by Branch -->
+                                <div class="col-md-6 d-flex align-items-center">
+                                    <label class="me-2 mb-0" for="filterBranch">Filter by Branch:</label>
+                                    <select id="filterBranch" class="form-select form-select-sm" style="width: auto;">
                                         <option value="all">All Branches</option>
                                         <option value="tokyo">Tokyo</option>
                                         <option value="london">London</option>
                                         <option value="new-york">New York</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="filterDate" class="form-label">Filter by Date</label>
-                                    <input type="date" id="filterDate" class="form-control form-control-sm">
+                            
+                                <!-- Filter by Date -->
+                                <div class="col-md-6 d-flex align-items-center text-md-end">
+                                    <label class="me-2 mb-0" for="filterDate">Filter by Date:</label>
+                                    <input type="date" id="filterDate" class="form-control form-control-sm" style="width: auto;">
                                 </div>
                             </div>
-                            <div class="row align-items-center">
-                                <div class="col-md-6">
-                                    <label>Show
-                                        <select class="form-select form-select-sm d-inline-block" style="width: auto;">
-                                            <option value="10" selected>10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select> entries
-                                    </label>
-                                </div>
-                                <div class="col-md-6 text-md-end">
-                                    <label class="form-label mb-0">
-                                        <input type="search" class="form-control form-control-sm d-inline-block"
-                                            style="width: auto;" aria-controls="dataTable" placeholder="Search">
-                                    </label>
-                                </div>
-                            </div>
-
+                            
 
                             <!-- Transactions Table -->
                             <div class="table-responsive">
@@ -225,6 +239,11 @@
         function generateReceipt() {
             alert("Receipt generation feature is under development.");
         }
+        function toggleFilterVisibility() {
+        const filterSection = document.getElementById('filterSection');
+        const toggle = document.getElementById('enableFilterToggle');
+        filterSection.style.display = toggle.checked ? 'flex' : 'none';
+    }
     </script>
 </body>
 

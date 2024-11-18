@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Table - Brand</title>
+    <title>Employee</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Nunito.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -205,6 +205,48 @@
                                                 aria-controls="dataTable" placeholder="Search"></label></div>
                                 </div>
                             </div>
+
+                            <!-- Enable Filter Toggle -->
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="enableEmployeeFilterToggle"
+                                    onclick="toggleEmployeeFilter()">
+                                <label class="form-check-label" for="enableEmployeeFilterToggle">Enable Filter</label>
+                            </div>
+
+                            <!-- Filter Options -->
+                            <div id="employeeFilterSection" class="row align-items-center mb-3" style="display: none;">
+                                <!-- Filter by Branch -->
+                                <div class="col-md-4">
+                                    <label for="employeeFilterBranch" class="form-label">Filter by Branch:</label>
+                                    <select id="employeeFilterBranch" class="form-select form-select-sm">
+                                        <option value="all">All Branches</option>
+                                        <option value="tokyo">Tokyo</option>
+                                        <option value="london">London</option>
+                                        <option value="new-york">New York</option>
+                                    </select>
+                                </div>
+
+                                <!-- Filter by Role -->
+                                <div class="col-md-4">
+                                    <label for="employeeFilterRole" class="form-label">Filter by Role:</label>
+                                    <select id="employeeFilterRole" class="form-select form-select-sm">
+                                        <option value="all">All Roles</option>
+                                        <option value="accountant">Accountant</option>
+                                        <option value="manager">Manager</option>
+                                        <option value="developer">Developer</option>
+                                    </select>
+                                </div>
+
+                                <!-- Filter by Date -->
+                                <div class="col-md-4">
+                                    <label for="employeeFilterDate" class="form-label">Filter by Date of
+                                        Creation:</label>
+                                    <input type="date" id="employeeFilterDate" class="form-control form-control-sm">
+                                </div>
+                            </div>
+
+
+
                             <div class="table-responsive">
                                 <table class="table table-striped">
                                     <thead>
@@ -272,6 +314,13 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
+    <script>
+        function toggleEmployeeFilter() {
+        const filterSection = document.getElementById('employeeFilterSection');
+        const toggle = document.getElementById('enableEmployeeFilterToggle');
+        filterSection.style.display = toggle.checked ? 'flex' : 'none';
+    }
+    </script>
     <script src="assets/js/theme.js"></script>
 </body>
 
