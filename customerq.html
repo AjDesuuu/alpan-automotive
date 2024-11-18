@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Customer Queue</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Nunito.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-text mx-3"><span>ALpan Automotive</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i
+                                class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html"><i
+                                class="fas fa-user"></i><span>Profile</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="customerq.html"><i
+                                class="fas fa-user-clock"></i><span>Customer Queue</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="salestrans.html"><i
+                                class="far fa-list-alt"></i><span>Sales Transaction</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="inventory.html"><i
+                                class="fas fa-table"></i><span>Inventory</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="invoice.html"><i
+                                class="fas fa-receipt"></i><span>Invoice</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="employees.html"><i
+                                class="far fa-address-book"></i><span>Employees</span></a></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
+                        id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-expand bg-white shadow mb-4 topbar static-top navbar-light">
+                    <div class="container-fluid">
+                        <button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop"
+                            type="button"><i class="fas fa-bars"></i></button>
+                        <ul class="navbar-nav flex-nowrap ms-auto">
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown"
+                                    href="#">
+                                    <span class="d-none d-lg-inline me-2 text-gray-600 small">Admin</span>
+                                    <img class="border rounded-circle img-profile"
+                                        src="assets/img/avatars/avatar1.jpeg">
+                                </a>
+                                <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in">
+                                    <a class="dropdown-item" href="#"><i
+                                            class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a>
+                                    <a class="dropdown-item" href="#"><i
+                                            class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Settings</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#"><i
+                                            class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">Customer Queue</h3>
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 fw-bold">Queue Management</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Queue ID</th>
+                                            <th>Customer Name</th>
+                                            <th>Transaction Type</th>
+                                            <th>Assigned Employee</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>John Doe</td>
+                                            <td>Service</td>
+                                            <td>Jane Smith</td>
+                                            <td>In Progress</td>
+                                            <td><button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#editTransactionModal"
+                                                    onclick="openEditModal(this)">Edit</button></td>
+                                        </tr>
+                                        <!-- Add more rows as needed -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#addTransactionModal">Add Transaction</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Editing a Transaction -->
+        <div class="modal fade" id="editTransactionModal" tabindex="-1" aria-labelledby="editTransactionModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editTransactionModalLabel">Edit Transaction</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="editTransactionForm">
+                            <!-- Customer Information -->
+                            <h5>Customer Information</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="editCustomerName" class="form-label">Customer Name</label>
+                                    <input type="text" class="form-control" id="editCustomerName" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="editCustomerAddress" class="form-label">Customer Address</label>
+                                    <input type="text" class="form-control" id="editCustomerAddress" readonly>
+                                </div>
+                            </div>
+
+                            <!-- Items Table -->
+                            <h5>Items Used</h5>
+                            <table class="table table-bordered" id="editItemsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Item Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price per Unit</th>
+                                        <th>Total Price</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Rows will be dynamically populated -->
+                                </tbody>
+                            </table>
+                            <button type="button" class="btn btn-secondary btn-sm mb-3"
+                                onclick="addRowToEditItems()">Add Row</button>
+
+                            <!-- Service and Payment Details -->
+                            <h5>Service and Payment Details</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label for="editServiceCharge" class="form-label">Service Charge</label>
+                                    <input type="number" class="form-control" id="editServiceCharge"
+                                        onchange="updatePendingAmount()">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="editPaidAmount" class="form-label">Paid Amount</label>
+                                    <input type="number" class="form-control" id="editPaidAmount"
+                                        onchange="updatePendingAmount()">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="editPendingAmount" class="form-label">Pending Payment Amount</label>
+                                    <input type="number" class="form-control" id="editPendingAmount" readonly>
+                                </div>
+                            </div>
+
+                            <!-- Transaction Status -->
+                            <h5>Transaction Status</h5>
+                            <div class="mb-3">
+                                <label for="editStatus" class="form-label">Status</label>
+                                <select class="form-select" id="editStatus">
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Completed">Completed</option>
+                                </select>
+                            </div>
+
+                            <!-- Save Button -->
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Modal for Adding a Transaction -->
+        <div class="modal fade" id="addTransactionModal" tabindex="-1" aria-labelledby="addTransactionModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addTransactionModalLabel">Add Transaction</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <!-- Customer Information -->
+                            <h5>Customer Information</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="customerName" class="form-label">Customer Name</label>
+                                    <input type="text" class="form-control" id="customerName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="customerAddress" class="form-label">Customer Address</label>
+                                    <input type="text" class="form-control" id="customerAddress" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="contactNumber" class="form-label">Contact Number</label>
+                                    <input type="text" class="form-control" id="contactNumber" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="carModel" class="form-label">Car Model</label>
+                                    <input type="text" class="form-control" id="carModel" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="plateNumber" class="form-label">Plate Number</label>
+                                    <input type="text" class="form-control" id="plateNumber" required>
+                                </div>
+                            </div>
+
+                            <!-- Transaction Details -->
+                            <h5>Transaction Details</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="transactionType" class="form-label">Transaction Type</label>
+                                    <select class="form-select" id="transactionType"
+                                        onchange="toggleSpecifyField(this)">
+                                        <option value="Purchase">Purchase</option>
+                                        <option value="Service">Service</option>
+                                        <option value="Inquiry">Inquiry</option>
+                                        <option value="Other">Other</option>
+                                        <option value="Canceled">Canceled</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 d-none" id="specifyFieldContainer">
+                                    <label for="specifyField" class="form-label">Please Specify</label>
+                                    <input type="text" class="form-control" id="specifyField">
+                                </div>
+                            </div>
+
+                            <!-- Parts and Materials Table -->
+                            <h5>Parts and Materials</h5>
+                            <table class="table table-bordered" id="materialsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Item Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price per Unit</th>
+                                        <th>Total Price</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Rows will be dynamically added -->
+                                </tbody>
+                            </table>
+                            <button type="button" class="btn btn-secondary btn-sm mb-3" onclick="addRow()">Add
+                                Row</button>
+
+                            <!-- Service and Payment Details -->
+                            <h5>Service and Payment Details</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="serviceCharge" class="form-label">Service Charge</label>
+                                    <input type="number" class="form-control" id="serviceCharge" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="assignedEmployees" class="form-label">Assigned Employees</label>
+                                    <input type="text" class="form-control" id="assignedEmployees" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="pendingAmount" class="form-label">Pending Payment Amount</label>
+                                    <input type="number" class="form-control" id="pendingAmount" readonly>
+                                </div>
+                            </div>
+
+                            <!-- Transaction Dates -->
+                            <h5>Transaction Dates</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="startDate" class="form-label">Date and Time Started</label>
+                                    <input type="datetime-local" class="form-control" id="startDate">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="endDate" class="form-label">Date and Time Finished</label>
+                                    <input type="datetime-local" class="form-control" id="endDate">
+                                </div>
+                            </div>
+
+                            <!-- Save Button -->
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function openEditModal(button) {
+                // Get the row of the selected transaction
+                const row = button.closest('tr');
+
+                // Extract data from the row
+                const customerName = row.cells[1].textContent;
+
+                // Populate the modal with the extracted data
+                document.getElementById('editCustomerName').value = customerName;
+
+                // Populate items table with existing data (mock data used here for illustration)
+                const itemsTableBody = document.getElementById('editItemsTable').querySelector('tbody');
+                itemsTableBody.innerHTML = ''; // Clear existing rows
+
+                const mockItems = [
+                    { name: 'Oil Filter', quantity: 2, price: 150 },
+                    { name: 'Brake Pads', quantity: 4, price: 300 }
+                ]; // Replace this with actual data if connected to backend
+
+                mockItems.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+            <td><input type="text" class="form-control" value="${item.name}"></td>
+            <td><input type="number" class="form-control" value="${item.quantity}" onchange="updateTotal(this)"></td>
+            <td><input type="number" class="form-control" value="${item.price}" onchange="updateTotal(this)"></td>
+            <td><input type="number" class="form-control" value="${item.quantity * item.price}" readonly></td>
+            <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button></td>
+        `;
+                    itemsTableBody.appendChild(row);
+                });
+
+                // Show the modal
+                const editModal = new bootstrap.Modal(document.getElementById('editTransactionModal'));
+                editModal.show();
+
+                // Handle save changes
+                const form = document.getElementById('editTransactionForm');
+                form.onsubmit = function (e) {
+                    e.preventDefault();
+
+                    // Collect updated items data
+                    const updatedItems = [];
+                    itemsTableBody.querySelectorAll('tr').forEach(row => {
+                        const name = row.querySelector('td:nth-child(1) input').value;
+                        const quantity = parseInt(row.querySelector('td:nth-child(2) input').value, 10);
+                        const price = parseFloat(row.querySelector('td:nth-child(3) input').value);
+                        updatedItems.push({ name, quantity, price });
+                    });
+
+                    console.log('Updated Items:', updatedItems);
+
+                    // Optionally update the main table or send data to the backend here
+
+                    // Close the modal
+                    editModal.hide();
+                };
+            }
+
+            function addRowToEditItems() {
+                const itemsTableBody = document.getElementById('editItemsTable').querySelector('tbody');
+                const row = document.createElement('tr');
+                row.innerHTML = `
+        <td><input type="text" class="form-control"></td>
+        <td><input type="number" class="form-control" onchange="updateTotal(this)"></td>
+        <td><input type="number" class="form-control" onchange="updateTotal(this)"></td>
+        <td><input type="number" class="form-control" readonly></td>
+        <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button></td>
+    `;
+                itemsTableBody.appendChild(row);
+            }
+
+            function removeRow(button) {
+                button.closest('tr').remove();
+            }
+
+            function updateTotal(input) {
+                const row = input.closest('tr');
+                const quantity = parseFloat(row.querySelector('td:nth-child(2) input').value) || 0;
+                const price = parseFloat(row.querySelector('td:nth-child(3) input').value) || 0;
+                row.querySelector('td:nth-child(4) input').value = (quantity * price).toFixed(2);
+            }
+
+
+            // Toggle "Please Specify" field visibility
+            function toggleSpecifyField(select) {
+                const specifyFieldContainer = document.getElementById('specifyFieldContainer');
+                if (select.value === 'Other' || select.value === 'Canceled') {
+                    specifyFieldContainer.classList.remove('d-none');
+                } else {
+                    specifyFieldContainer.classList.add('d-none');
+                }
+            }
+
+            // Add a new row to the materials table
+            function addRow() {
+                const table = document.getElementById('materialsTable').querySelector('tbody');
+                const row = document.createElement('tr');
+                row.innerHTML = `
+            <td><input type="text" class="form-control" placeholder="Item Name"></td>
+            <td><input type="number" class="form-control" placeholder="Quantity"></td>
+            <td><input type="number" class="form-control" placeholder="Price per Unit"></td>
+            <td><input type="number" class="form-control" placeholder="Total Price" readonly></td>
+            <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button></td>
+        `;
+                table.appendChild(row);
+            }
+
+            // Remove a row from the materials table
+            function removeRow(button) {
+                button.closest('tr').remove();
+            }
+            function calculateTotal(row) {
+                const quantity = row.querySelector('input[placeholder="Quantity"]').value;
+                const price = row.querySelector('input[placeholder="Price per Unit"]').value;
+                const totalField = row.querySelector('input[placeholder="Total Price"]');
+                totalField.value = (quantity * price).toFixed(2);
+            }
+
+            // Add this to dynamically recalculate total on input
+            row.querySelector('input[placeholder="Quantity"]').addEventListener('input', () => calculateTotal(row));
+            row.querySelector('input[placeholder="Price per Unit"]').addEventListener('input', () => calculateTotal(row));
+
+            function updatePendingAmount() {
+                let total = 0;
+                document.querySelectorAll('#materialsTable tbody tr').forEach(row => {
+                    const totalPrice = parseFloat(row.querySelector('input[placeholder="Total Price"]').value) || 0;
+                    total += totalPrice;
+                });
+                const serviceCharge = parseFloat(document.getElementById('serviceCharge').value) || 0;
+                document.getElementById('pendingAmount').value = (total + serviceCharge).toFixed(2);
+            }
+
+            // Call `updatePendingAmount` whenever relevant fields change
+            document.getElementById('serviceCharge').addEventListener('input', updatePendingAmount);
+
+
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
