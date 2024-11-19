@@ -89,7 +89,8 @@
                                             class="dropdown-item" href="#"><i
                                                 class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity
                                             log</a>
-                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="login.html"><i
+                                        <div class="dropdown-divider"></div><a class="dropdown-item"
+                                            href="login.html"><i
                                                 class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
                                     </div>
                                 </div>
@@ -105,8 +106,9 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex justify-content-between align-items-center">
                             <p class="text-primary m-0 fw-bold">Transaction Records</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#generateReportModal"><i
-                                class="fas fa-download fa-sm text-white-50"></i>&nbsp; Generate Report</button>
+                            <button class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#generateReportModal"><i
+                                    class="fas fa-download fa-sm text-white-50"></i>&nbsp; Generate Report</button>
 
                         </div>
                         <div class="card-body">
@@ -188,10 +190,14 @@
                                             <td><span class="badge bg-success">Paid</span></td>
                                             <td>RXN12345</td>
                                             <td>
-                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#viewDetailsModal"><i class="fas fa-eye"></i></button>
-                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#generateReceiptModal"><i class="fas fa-download"></i></button>
+                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#viewDetailsModal"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#generateReceiptModal"><i
+                                                        class="fas fa-download"></i></button>
                                             </td>
-                                            
+
                                         </tr>
                                         <!-- More transactions go here -->
                                     </tbody>
@@ -273,17 +279,18 @@
             </div>
 
             <!-- Generate Report Modal -->
+            <!-- Generate Sales Report Modal -->
             <div class="modal fade" id="generateReportModal" tabindex="-1" aria-labelledby="generateReportLabel"
                 aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="generateReportLabel">Generate Sales Report</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <p>Select the criteria for the report:</p>
-                            <form>
+                            <form id="generateSalesReportForm">
+                                <!-- Branch Selection -->
                                 <div class="mb-3">
                                     <label for="reportBranch" class="form-label">Branch</label>
                                     <select id="reportBranch" class="form-select">
@@ -293,15 +300,69 @@
                                         <option value="new-york">New York</option>
                                     </select>
                                 </div>
+
+                                <!-- Date Range -->
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="reportStartDate" class="form-label">Start Date</label>
+                                        <input type="date" class="form-control" id="reportStartDate" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="reportEndDate" class="form-label">End Date</label>
+                                        <input type="date" class="form-control" id="reportEndDate" required>
+                                    </div>
+                                </div>
+
+                                <!-- Transaction Type Filter -->
                                 <div class="mb-3">
-                                    <label for="reportDateRange" class="form-label">Date Range</label>
-                                    <input type="text" class="form-control" id="reportDateRange"
-                                        placeholder="e.g., 2024-01-01 to 2024-01-31">
+                                    <label for="transactionType" class="form-label">Transaction Type</label>
+                                    <select id="transactionType" class="form-select">
+                                        <option value="all">All Types</option>
+                                        <option value="repair">Repair</option>
+                                        <option value="sale">Sale</option>
+                                        <option value="service">Service</option>
+                                    </select>
+                                </div>
+
+                                <!-- Payment Status Filter -->
+                                <div class="mb-3">
+                                    <label for="paymentStatus" class="form-label">Payment Status</label>
+                                    <select id="paymentStatus" class="form-select">
+                                        <option value="all">All Statuses</option>
+                                        <option value="paid">Paid</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="overdue">Overdue</option>
+                                    </select>
+                                </div>
+
+                                <!-- Total Amount Range -->
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="minAmount" class="form-label">Minimum Amount</label>
+                                        <input type="number" class="form-control" id="minAmount"
+                                            placeholder="e.g., 100">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="maxAmount" class="form-label">Maximum Amount</label>
+                                        <input type="number" class="form-control" id="maxAmount"
+                                            placeholder="e.g., 500">
+                                    </div>
+                                </div>
+
+                                <!-- Report Format -->
+                                <div class="mb-3">
+                                    <label for="reportFormat" class="form-label">Report Format</label>
+                                    <select id="reportFormat" class="form-select">
+                                        <option value="PDF">PDF</option>
+                                        <option value="Excel">Excel</option>
+                                    </select>
                                 </div>
                             </form>
                         </div>
+
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Generate Report</button>
+                            <button type="button" class="btn btn-primary" onclick="generateSalesReport()">Generate
+                                Report</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -336,6 +397,27 @@
             const filterSection = document.getElementById('filterSection');
             const toggle = document.getElementById('enableFilterToggle');
             filterSection.style.display = toggle.checked ? 'flex' : 'none';
+        }
+    </script>
+    <script>
+        function generateSalesReport() {
+            const branch = document.getElementById('reportBranch').value;
+            const startDate = document.getElementById('reportStartDate').value;
+            const endDate = document.getElementById('reportEndDate').value;
+            const transactionType = document.getElementById('transactionType').value;
+            const paymentStatus = document.getElementById('paymentStatus').value;
+            const minAmount = document.getElementById('minAmount').value;
+            const maxAmount = document.getElementById('maxAmount').value;
+            const format = document.getElementById('reportFormat').value;
+
+            alert(`Generating report with the following filters:
+                Branch: ${branch}
+                Date Range: ${startDate} to ${endDate}
+                Transaction Type: ${transactionType}
+                Payment Status: ${paymentStatus}
+                Amount Range: ${minAmount} to ${maxAmount}
+                Format: ${format}`);
+            // Add your backend logic or API integration here
         }
     </script>
 </body>
