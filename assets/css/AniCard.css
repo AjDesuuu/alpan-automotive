@@ -1,0 +1,41 @@
+/* Action Card - Hover Effect */
+.card .card-body a .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card .card-body a .card:hover {
+    transform: translateY(-5px); /* Slightly lifts the card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds a larger shadow */
+}
+
+/* Action Card - Click Effect */
+.card .card-body a .card:active {
+    transform: scale(0.97); /* Adds a subtle shrink effect on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Reduces shadow on click */
+}
+
+/* Action Icon - Color Change on Hover */
+.card .card-body a .card:hover i {
+    color: #ffffff;
+}
+
+.card .card-body a .card:hover .text-primary {
+    color: #4e73df;
+}
+
+.card .card-body a .card:hover .text-success {
+    color: #1cc88a;
+}
+
+.card .card-body a .card:hover .text-info {
+    color: #36b9cc;
+}
+
+.card .card-body a .card:hover .text-warning {
+    color: #f6c23e;
+}
+
+/* Smooth Icon Transition */
+.card .card-body i {
+    transition: color 0.3s ease;
+}
