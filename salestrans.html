@@ -232,6 +232,7 @@
             </div>
             <!-- Modals Section -->
             <!-- View Details Modal -->
+            <!-- View Details Modal -->
             <div class="modal fade" id="viewDetailsModal" tabindex="-1" aria-labelledby="viewDetailsLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-lg">
@@ -241,13 +242,44 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                            <!-- Transaction Details -->
                             <p><strong>Customer Name:</strong> Airi Satou</p>
-                            <p><strong>Transaction Type:</strong> Repair</p>
                             <p><strong>Branch:</strong> Tokyo</p>
+                            <p><strong>Transaction Type:</strong> Repair</p>
                             <p><strong>Transaction Date:</strong> 2024-02-15</p>
+                            <p><strong>Completion Time:</strong> 2024-02-16 14:30</p> <!-- Added Completion Time -->
                             <p><strong>Total Amount:</strong> $300.00</p>
+                            <p><strong>Service Charge:</strong> $50.00</p> <!-- Added Service Charge -->
                             <p><strong>Payment Status:</strong> Paid</p>
                             <p><strong>Receipt Number:</strong> RXN12345</p>
+
+                            <!-- Items Table -->
+                            <h5>Materials Used</h5>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Item Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price per Unit</th>
+                                        <th>Total Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Oil Filter</td>
+                                        <td>2</td>
+                                        <td>$75.00</td>
+                                        <td>$150.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Brake Pads</td>
+                                        <td>2</td>
+                                        <td>$75.00</td>
+                                        <td>$150.00</td>
+                                    </tr>
+                                    <!-- Add more rows dynamically as needed -->
+                                </tbody>
+                            </table>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -255,6 +287,8 @@
                     </div>
                 </div>
             </div>
+
+
 
             <!-- Generate Receipt Modal -->
             <div class="modal fade" id="generateReceiptModal" tabindex="-1" aria-labelledby="generateReceiptLabel"

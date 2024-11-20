@@ -161,7 +161,7 @@
                                             <td>
                                                 <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
                                                     data-bs-target="#editTransactionModal"
-                                                    onclick="openEditModal(this)"><i class="fas fa-edit"></i></button>
+                                                    ><i class="fas fa-edit"></i></button>
                                             </td>
                                         </tr>
                                         <!-- Add more rows as needed -->
@@ -208,8 +208,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editTransactionModalLabel">Edit Transaction</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeEditModal();
-"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close";></button>
                     </div>
                     <div class="modal-body">
                         <form id="editTransactionForm">
@@ -456,10 +455,8 @@
                     console.log('Updated Items:', updatedItems);
 
                     // Optionally update the main table or send data to the backend here
-
-                    // Close the modal
-
-                    closeEditModal();
+                    closeModal(document.getElementById('editTransactionModal'))
+                
                 };
             }
 
