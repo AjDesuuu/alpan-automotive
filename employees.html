@@ -46,8 +46,8 @@
                             id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
                             <div class="input-group"><input class="bg-light form-control border-0 small" type="text"
-                                    placeholder="Search for employees..."><button class="btn btn-primary py-0" type="button"><i
-                                        class="fas fa-search"></i></button></div>
+                                    placeholder="Search for employees..."><button class="btn btn-primary py-0"
+                                    type="button"><i class="fas fa-search"></i></button></div>
                         </form>
                         <ul class="navbar-nav flex-nowrap ms-auto">
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
@@ -578,6 +578,63 @@
         }
 
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const employeeTableBody = document.querySelector(".table tbody");
+
+            // Function to load employee data
+            function loadEmployees() {
+                fetch("employeedata.json")
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Failed to fetch employee data");
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        employeeTableBody.innerHTML = ""; // Clear existing rows
+                        data.forEach(employee => {
+                            const row = document.createElement("tr");
+                            row.innerHTML = `
+                                <td>
+                                    <img class="rounded-circle me-2" width="30" height="30" src="${employee.avatar}" alt="${employee.name}">
+                                    ${employee.name}
+                                </td>
+                                <td>${employee.role}</td>
+                                <td>${employee.branch}</td>
+                                <td>${employee.dateOfAccountCreation}</td>
+                                <td>${employee.workHours}</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm me-1" onclick="openEditModal(${JSON.stringify(employee)})">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm me-1" onclick="openViewModal(${JSON.stringify(employee)})">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" onclick="confirmDeleteEmployee('${employee.name}')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            `;
+                            employeeTableBody.appendChild(row);
+                        });
+                    })
+                    .catch(error => {
+                        console.error("Error loading employee data:", error);
+                    });
+            }
+
+            loadEmployees(); // Load the data on page load
+        });
+
+        function confirmDeleteEmployee(name) {
+            if (confirm(`Are you sure you want to delete ${name}?`)) {
+                alert(`${name} has been deleted.`);
+                // Additional logic for deletion can go here
+            }
+        }
+    </script>
+
     <script src="assets/js/theme.js"></script>
 </body>
 

@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Airi Satou",
+        "role": "Accountant",
+        "branch": "Tokyo",
+        "dateOfAccountCreation": "2008/11/28",
+        "workHours": "40 hrs",
+        "avatar": "assets/img/avatars/avatar1.jpeg"
+    },
+    {
+        "name": "Angelica Ramos",
+        "role": "Manager",
+        "branch": "London",
+        "dateOfAccountCreation": "2009/10/16",
+        "workHours": "38 hrs",
+        "avatar": "assets/img/avatars/avatar2.jpeg"
+    },
+    {
+        "name": "Ashton Cox",
+        "role": "Developer",
+        "branch": "New York",
+        "dateOfAccountCreation": "2010/01/12",
+        "workHours": "45 hrs",
+        "avatar": "assets/img/avatars/avatar3.jpeg"
+    }
+]

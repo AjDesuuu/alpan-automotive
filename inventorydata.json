@@ -1,0 +1,83 @@
+[
+    {
+      "itemName": "Oil Filter",
+      "itemNumber": "1001",
+      "category": "Parts",
+      "quantity": 5,
+      "supplier": "Auto Supplies Inc.",
+      "pricePerUnit": "$25.00"
+    },
+    {
+      "itemName": "Brake Pads",
+      "itemNumber": "1002",
+      "category": "Parts",
+      "quantity": 12,
+      "supplier": "Global Parts Ltd.",
+      "pricePerUnit": "$45.00"
+    },
+    {
+      "itemName": "Air Filter",
+      "itemNumber": "1003",
+      "category": "Consumables",
+      "quantity": 8,
+      "supplier": "Premium Auto Supply",
+      "pricePerUnit": "$30.00"
+    },
+    {
+      "itemName": "Engine Oil",
+      "itemNumber": "1004",
+      "category": "Consumables",
+      "quantity": 20,
+      "supplier": "Auto Supplies Inc.",
+      "pricePerUnit": "$18.00"
+    },
+    {
+      "itemName": "Wiper Blades",
+      "itemNumber": "1005",
+      "category": "Parts",
+      "quantity": 3,
+      "supplier": "Global Parts Ltd.",
+      "pricePerUnit": "$15.00"
+    },
+    {
+      "itemName": "Spark Plugs",
+      "itemNumber": "1006",
+      "category": "Parts",
+      "quantity": 10,
+      "supplier": "Premium Auto Supply",
+      "pricePerUnit": "$10.00"
+    },
+    {
+      "itemName": "Coolant",
+      "itemNumber": "1007",
+      "category": "Consumables",
+      "quantity": 25,
+      "supplier": "Auto Supplies Inc.",
+      "pricePerUnit": "$12.00"
+    },
+    {
+      "itemName": "Car Battery",
+      "itemNumber": "1008",
+      "category": "Parts",
+      "quantity": 2,
+      "supplier": "Global Parts Ltd.",
+      "pricePerUnit": "$100.00"
+    },
+    {
+      "itemName": "Tire",
+      "itemNumber": "1009",
+      "category": "Parts",
+      "quantity": 6,
+      "supplier": "Premium Auto Supply",
+      "pricePerUnit": "$75.00"
+    },
+    {
+      "itemName": "Brake Fluid",
+      "itemNumber": "1010",
+      "category": "Consumables",
+      "quantity": 15,
+      "supplier": "Auto Supplies Inc.",
+      "pricePerUnit": "$8.00"
+    }
+  ]
+  

@@ -1,0 +1,93 @@
+[
+    {
+      "customerName": "Airi Satou",
+      "transactionType": "Repair",
+      "branch": "Tokyo",
+      "transactionDate": "2024-02-15",
+      "totalAmount": "$300.00",
+      "paymentStatus": "Paid",
+      "receiptNumber": "RXN12345"
+    },
+    {
+      "customerName": "Angelica Ramos",
+      "transactionType": "Sale",
+      "branch": "London",
+      "transactionDate": "2024-03-10",
+      "totalAmount": "$450.00",
+      "paymentStatus": "Pending",
+      "receiptNumber": "RXN12346"
+    },
+    {
+      "customerName": "Ashton Cox",
+      "transactionType": "Service",
+      "branch": "New York",
+      "transactionDate": "2024-04-05",
+      "totalAmount": "$150.00",
+      "paymentStatus": "Paid",
+      "receiptNumber": "RXN12347"
+    },
+    {
+      "customerName": "Cedric Kelly",
+      "transactionType": "Repair",
+      "branch": "Tokyo",
+      "transactionDate": "2024-01-22",
+      "totalAmount": "$500.00",
+      "paymentStatus": "Paid",
+      "receiptNumber": "RXN12348"
+    },
+    {
+      "customerName": "Brielle Williamson",
+      "transactionType": "Sale",
+      "branch": "London",
+      "transactionDate": "2024-02-19",
+      "totalAmount": "$300.00",
+      "paymentStatus": "Paid",
+      "receiptNumber": "RXN12349"
+    },
+    {
+      "customerName": "Herrod Chandler",
+      "transactionType": "Repair",
+      "branch": "New York",
+      "transactionDate": "2024-03-15",
+      "totalAmount": "$200.00",
+      "paymentStatus": "Paid",
+      "receiptNumber": "RXN12350"
+    },
+    {
+      "customerName": "Rhona Davidson",
+      "transactionType": "Sale",
+      "branch": "Tokyo",
+      "transactionDate": "2024-04-25",
+      "totalAmount": "$350.00",
+      "paymentStatus": "Paid",
+      "receiptNumber": "RXN12351"
+    },
+    {
+      "customerName": "Colleen Hurst",
+      "transactionType": "Service",
+      "branch": "London",
+      "transactionDate": "2024-05-05",
+      "totalAmount": "$120.00",
+      "paymentStatus": "Paid",
+      "receiptNumber": "RXN12352"
+    },
+    {
+      "customerName": "Sonya Frost",
+      "transactionType": "Repair",
+      "branch": "New York",
+      "transactionDate": "2024-05-15",
+      "totalAmount": "$400.00",
+      "paymentStatus": "Paid",
+      "receiptNumber": "RXN12353"
+    },
+    {
+      "customerName": "Jena Gaines",
+      "transactionType": "Sale",
+      "branch": "Tokyo",
+      "transactionDate": "2024-06-20",
+      "totalAmount": "$700.00",
+      "paymentStatus": "Paid",
+      "receiptNumber": "RXN12354"
+    }
+  ]
+  

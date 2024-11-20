@@ -588,6 +588,58 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const tableBody = document.querySelector("#inventoryTable tbody");
+      
+          // Fetch the JSON data
+          fetch("inventorydata.json")
+            .then(response => response.json())
+            .then(data => {
+              tableBody.innerHTML = ""; // Clear existing rows
+      
+              data.forEach(item => {
+                const row = document.createElement("tr");
+      
+                // Check if the quantity is low
+                const lowStockBadge =
+                  item.quantity <= 5
+                    ? '<span class="badge bg-danger">Low Stock</span>'
+                    : "";
+      
+                // Populate row cells
+                row.innerHTML = `
+                  <td>${item.itemName}</td>
+                  <td>${item.itemNumber}</td>
+                  <td>${item.category}</td>
+                  <td>${item.quantity} ${lowStockBadge}</td>
+                  <td>${item.supplier}</td>
+                  <td>${item.pricePerUnit}</td>
+                  <td>
+                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#updateItemModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteItemModal">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-sm" onclick="addQuantity(this)">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                                <button class="btn btn-sm" onclick="reduceQuantity(this)">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                            </td>
+                `;
+      
+                tableBody.appendChild(row);
+              });
+            })
+            .catch(error => console.error("Error loading inventory data:", error));
+        });
+      </script>
+      
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
 

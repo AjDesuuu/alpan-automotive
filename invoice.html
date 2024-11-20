@@ -46,8 +46,8 @@
                             id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
                             <div class="input-group"><input class="bg-light form-control border-0 small" type="text"
-                                    placeholder="Search for invoices..."><button class="btn btn-primary py-0" type="button"><i
-                                        class="fas fa-search"></i></button></div>
+                                    placeholder="Search for invoices..."><button class="btn btn-primary py-0"
+                                    type="button"><i class="fas fa-search"></i></button></div>
                         </form>
                         <ul class="navbar-nav flex-nowrap ms-auto">
                             <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
@@ -188,7 +188,7 @@
                             <p class="text-primary m-0 fw-bold">Supplier Invoice Records</p>
                             <div>
                                 <button class="btn btn-primary" onclick="openReportModal()"><i
-                                    class="fas fa-download fa-sm text-white-50"></i>&nbsp; Generate Report</button>
+                                        class="fas fa-download fa-sm text-white-50"></i>&nbsp; Generate Report</button>
                                 <button class="btn btn-primary" onclick="openInvoiceModal()">Add Supplier
                                     Invoice</button>
 
@@ -250,7 +250,7 @@
                             <!-- Supplier Invoice Table -->
 
                             <div class="table-responsive">
-                                <table class="table table-bordered table-hover mt-3" id="supplierInvoiceTable">
+                                <table class="table table-striped table-hover mt-3" id="supplierInvoiceTable">
                                     <thead>
                                         <tr>
                                             <th>Supplier Invoice ID</th>
@@ -275,11 +275,14 @@
                                             <td>2024-02-22</td>
                                             <td>
                                                 <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#editInvoiceModal"><i class="fas fa-edit"></i></button>
+                                                    data-bs-target="#editInvoiceModal"><i
+                                                        class="fas fa-edit"></i></button>
                                                 <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#viewInvoiceModal"><i class="fas fa-eye"></i></button>
+                                                    data-bs-target="#viewInvoiceModal"><i
+                                                        class="fas fa-eye"></i></button>
                                                 <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#deleteInvoiceModal"><i class="fa fa-trash"></i></button>
+                                                    data-bs-target="#deleteInvoiceModal"><i
+                                                        class="fa fa-trash"></i></button>
                                             </td>
 
                                         </tr>
@@ -694,6 +697,55 @@
             bootstrap.Modal.getInstance(document.getElementById('generateReportModal')).hide();
         }
 
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const tableBody = document.querySelector("#supplierInvoiceTable tbody");
+
+            // Fetch the JSON data
+            fetch("invoicedata.json")
+                .then(response => response.json())
+                .then(data => {
+                    tableBody.innerHTML = ""; // Clear existing rows
+
+                    data.forEach(invoice => {
+                        const row = document.createElement("tr");
+
+                        // Payment status badge
+                        const statusBadge =
+                            invoice.paymentStatus === "Paid"
+                                ? '<span class="badge bg-success">Paid</span>'
+                                : invoice.paymentStatus === "Pending"
+                                    ? '<span class="badge bg-warning">Pending</span>'
+                                    : '<span class="badge bg-danger">Overdue</span>';
+
+                        // Populate row cells
+                        row.innerHTML = `
+                  <td>${invoice.supplierInvoiceId}</td>
+                  <td>${invoice.supplierName}</td>
+                  <td>${invoice.orderDate}</td>
+                  <td>${invoice.receivedDate}</td>
+                  <td>${invoice.pendingAmount}</td>
+                  <td>${statusBadge}</td>
+                  <td>${invoice.dueDate}</td>
+                  <td>
+                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editInvoiceModal">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#viewInvoiceModal">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteInvoiceModal">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </td>
+                `;
+
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error("Error loading invoice data:", error));
+        });
     </script>
 
     <script src="assets/js/bs-init.js"></script>
