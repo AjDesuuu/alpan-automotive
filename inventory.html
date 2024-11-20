@@ -35,7 +35,7 @@
                                 class="far fa-address-book"></i><span>Employees</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
-                    id="sidebarToggle" type="button"></button></div>
+                        id="sidebarToggle" type="button"></button></div>
             </div>
         </nav>
 
@@ -124,7 +124,7 @@
                             <div class="d-flex">
                                 <button class="btn btn-primary me-2" data-bs-toggle="modal"
                                     data-bs-target="#generateReportModal"><i
-                                    class="fas fa-download fa-sm text-white-50"></i>&nbsp; Generate Report</button>
+                                        class="fas fa-download fa-sm text-white-50"></i>&nbsp; Generate Report</button>
                                 <button class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#addItemModal">Add New Item</button>
                             </div>
@@ -281,7 +281,8 @@
 
             <!-- Modals for Add, Update, and Delete Actions -->
             <!-- Add Item Modal -->
-            <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
+            <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -310,18 +311,27 @@
                                     <label for="supplier" class="form-label">Supplier</label>
                                     <div class="dropdown">
                                         <input type="text" class="form-control dropdown-toggle" id="supplier" required
-                                               placeholder="Select or type a supplier" data-bs-toggle="dropdown" autocomplete="off">
+                                            placeholder="Select or type a supplier" data-bs-toggle="dropdown"
+                                            autocomplete="off">
                                         <ul class="dropdown-menu w-100" id="supplierOptions">
-                                            <li><a class="dropdown-item" href="#" onclick="selectSupplier('Auto Supplies Inc.')">Auto Supplies Inc.</a></li>
-                                            <li><a class="dropdown-item" href="#" onclick="selectSupplier('Global Parts Ltd.')">Global Parts Ltd.</a></li>
-                                            <li><a class="dropdown-item" href="#" onclick="selectSupplier('Premium Auto Supply')">Premium Auto Supply</a></li>
-                                            <li><a class="dropdown-item" href="#" onclick="selectSupplier('Others')">Others</a></li>
+                                            <li><a class="dropdown-item" href="#"
+                                                    onclick="selectSupplier('Auto Supplies Inc.')">Auto Supplies
+                                                    Inc.</a></li>
+                                            <li><a class="dropdown-item" href="#"
+                                                    onclick="selectSupplier('Global Parts Ltd.')">Global Parts Ltd.</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#"
+                                                    onclick="selectSupplier('Premium Auto Supply')">Premium Auto
+                                                    Supply</a></li>
+                                            <li><a class="dropdown-item" href="#"
+                                                    onclick="selectSupplier('Others')">Others</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div id="newSupplierSection" class="mb-3 d-none">
                                     <label for="newSupplier" class="form-label">Add New Supplier</label>
-                                    <input type="text" class="form-control" id="newSupplier" placeholder="Enter new supplier name">
+                                    <input type="text" class="form-control" id="newSupplier"
+                                        placeholder="Enter new supplier name">
                                 </div>
                                 <div class="mb-3">
                                     <label for="unitPrice" class="form-label">Price Per Unit</label>
@@ -329,7 +339,8 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="description" class="form-label">Description</label>
-                                    <textarea class="form-control" id="description" rows="3" placeholder="Enter item description"></textarea>
+                                    <textarea class="form-control" id="description" rows="3"
+                                        placeholder="Enter item description"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Save Item</button>
                             </form>
@@ -337,9 +348,10 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Update Item Modal -->
-            <div class="modal fade" id="updateItemModal" tabindex="-1" aria-labelledby="updateItemModalLabel" aria-hidden="true">
+            <div class="modal fade" id="updateItemModal" tabindex="-1" aria-labelledby="updateItemModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -374,7 +386,8 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="updateDescription" class="form-label">Description</label>
-                                    <textarea class="form-control" id="updateDescription" rows="3" placeholder="Update item description"></textarea>
+                                    <textarea class="form-control" id="updateDescription" rows="3"
+                                        placeholder="Update item description"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
                             </form>
@@ -382,7 +395,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Generate Report Modal -->
             <div class="modal fade" id="generateReportModal" tabindex="-1" aria-labelledby="generateReportModalLabel"
                 aria-hidden="true">
@@ -590,25 +603,25 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-          const tableBody = document.querySelector("#inventoryTable tbody");
-      
-          // Fetch the JSON data
-          fetch("inventorydata.json")
-            .then(response => response.json())
-            .then(data => {
-              tableBody.innerHTML = ""; // Clear existing rows
-      
-              data.forEach(item => {
-                const row = document.createElement("tr");
-      
-                // Check if the quantity is low
-                const lowStockBadge =
-                  item.quantity <= 5
-                    ? '<span class="badge bg-danger">Low Stock</span>'
-                    : "";
-      
-                // Populate row cells
-                row.innerHTML = `
+            const tableBody = document.querySelector("#inventoryTable tbody");
+
+            // Fetch the JSON data
+            fetch("inventorydata.json")
+                .then(response => response.json())
+                .then(data => {
+                    tableBody.innerHTML = ""; // Clear existing rows
+
+                    data.forEach(item => {
+                        const row = document.createElement("tr");
+
+                        // Check if the quantity is low
+                        const lowStockBadge =
+                            item.quantity <= 5
+                                ? '<span class="badge bg-danger">Low Stock</span>'
+                                : "";
+
+                        // Populate row cells
+                        row.innerHTML = `
                   <td>${item.itemName}</td>
                   <td>${item.itemNumber}</td>
                   <td>${item.category}</td>
@@ -632,14 +645,14 @@
                                                 </button>
                                             </td>
                 `;
-      
-                tableBody.appendChild(row);
-              });
-            })
-            .catch(error => console.error("Error loading inventory data:", error));
+
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error("Error loading inventory data:", error));
         });
-      </script>
-      
+    </script>
+
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
 
