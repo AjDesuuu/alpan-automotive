@@ -1,82 +1,92 @@
 [
   {
       "itemName": "Oil Filter",
-      "itemNumber": "A1001",
+      "itemNumber": "OF1001",
       "category": "Parts",
       "quantity": 5,
       "supplier": "Auto Supplies Inc.",
+      "brand": "Petron",
       "pricePerUnit": "$25.00"
   },
   {
       "itemName": "Brake Pads",
-      "itemNumber": "B1002",
+      "itemNumber": "BP1002",
       "category": "Parts",
       "quantity": 12,
       "supplier": "Global Parts Ltd.",
+      "brand": "Toyota",
       "pricePerUnit": "$45.00"
   },
   {
       "itemName": "Air Filter",
-      "itemNumber": "C1003",
+      "itemNumber": "AF1003",
       "category": "Consumables",
       "quantity": 8,
       "supplier": "Premium Auto Supply",
+      "brand": "Honda",
       "pricePerUnit": "$30.00"
   },
   {
       "itemName": "Engine Oil",
-      "itemNumber": "D1004",
+      "itemNumber": "EO1004",
       "category": "Consumables",
       "quantity": 20,
       "supplier": "Auto Supplies Inc.",
+      "brand": "Petron",
       "pricePerUnit": "$18.00"
   },
   {
       "itemName": "Wiper Blades",
-      "itemNumber": "E1005",
+      "itemNumber": "WB1005",
       "category": "Parts",
       "quantity": 3,
       "supplier": "Global Parts Ltd.",
+      "brand": "Ford",
       "pricePerUnit": "$15.00"
   },
   {
       "itemName": "Spark Plugs",
-      "itemNumber": "F1006",
+      "itemNumber": "SP1006",
       "category": "Parts",
       "quantity": 10,
       "supplier": "Premium Auto Supply",
+      "brand": "Honda",
       "pricePerUnit": "$10.00"
   },
   {
       "itemName": "Coolant",
-      "itemNumber": "G1007",
+      "itemNumber": "CL1007",
       "category": "Consumables",
       "quantity": 25,
       "supplier": "Auto Supplies Inc.",
+      "brand": "Castrol",
       "pricePerUnit": "$12.00"
   },
   {
       "itemName": "Car Battery",
-      "itemNumber": "H1008",
+      "itemNumber": "CB1008",
       "category": "Parts",
       "quantity": 2,
       "supplier": "Global Parts Ltd.",
+      "brand": "Panasonic",
       "pricePerUnit": "$100.00"
   },
   {
       "itemName": "Tire",
-      "itemNumber": "I1009",
+      "itemNumber": "TR1009",
       "category": "Parts",
       "quantity": 6,
       "supplier": "Premium Auto Supply",
+      "brand": "Michelin",
       "pricePerUnit": "$75.00"
   },
   {
       "itemName": "Brake Fluid",
-      "itemNumber": "J1010",
+      "itemNumber": "BF1010",
       "category": "Consumables",
       "quantity": 15,
       "supplier": "Auto Supplies Inc.",
+      "brand": "Petron",
       "pricePerUnit": "$8.00"
   }
 ]
