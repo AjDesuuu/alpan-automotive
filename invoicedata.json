@@ -1,7 +1,8 @@
 [
   {
-      "supplierInvoiceId": "2402INV00001",
+      "supplierInvoiceId": "2402-TK-AUT-INV00001",
       "supplierName": "Auto Supplies Inc.",
+      "branch": "Tokyo",
       "orderDate": "2024-02-10",
       "receivedDate": "2024-02-15",
       "pendingAmount": "$500.00",
@@ -9,8 +10,9 @@
       "dueDate": "2024-02-22"
   },
   {
-      "supplierInvoiceId": "2401INV00002",
+      "supplierInvoiceId": "2401-LD-GEA-INV00002",
       "supplierName": "Gear Up Motors",
+      "branch": "London",
       "orderDate": "2024-01-15",
       "receivedDate": "2024-01-20",
       "pendingAmount": "$300.00",
@@ -18,8 +20,9 @@
       "dueDate": "2024-01-30"
   },
   {
-      "supplierInvoiceId": "2402INV00003",
+      "supplierInvoiceId": "2402-TK-SPA-INV00003",
       "supplierName": "Spare Parts Hub",
+      "branch": "Tokyo",
       "orderDate": "2024-02-05",
       "receivedDate": "2024-02-10",
       "pendingAmount": "$250.00",
@@ -27,8 +30,9 @@
       "dueDate": "2024-02-17"
   },
   {
-      "supplierInvoiceId": "2403INV00004",
+      "supplierInvoiceId": "2403-TK-AUT-INV00004",
       "supplierName": "Auto Supplies Inc.",
+      "branch": "Tokyo",
       "orderDate": "2024-03-01",
       "receivedDate": "2024-03-05",
       "pendingAmount": "$600.00",
@@ -36,8 +40,9 @@
       "dueDate": "2024-03-12"
   },
   {
-      "supplierInvoiceId": "2401INV00005",
+      "supplierInvoiceId": "2401-LD-GEA-INV00005",
       "supplierName": "Gear Up Motors",
+      "branch": "London",
       "orderDate": "2024-01-25",
       "receivedDate": "2024-01-30",
       "pendingAmount": "$400.00",
@@ -45,8 +50,9 @@
       "dueDate": "2024-02-10"
   },
   {
-      "supplierInvoiceId": "2402INV00006",
+      "supplierInvoiceId": "2402-TK-SPA-INV00006",
       "supplierName": "Spare Parts Hub",
+      "branch": "Tokyo",
       "orderDate": "2024-02-20",
       "receivedDate": "2024-02-25",
       "pendingAmount": "$700.00",
@@ -54,8 +60,9 @@
       "dueDate": "2024-03-01"
   },
   {
-      "supplierInvoiceId": "2403INV00007",
+      "supplierInvoiceId": "2403-TK-AUT-INV00007",
       "supplierName": "Auto Supplies Inc.",
+      "branch": "Tokyo",
       "orderDate": "2024-03-10",
       "receivedDate": "2024-03-15",
       "pendingAmount": "$1000.00",
@@ -63,8 +70,9 @@
       "dueDate": "2024-03-22"
   },
   {
-      "supplierInvoiceId": "2402INV00008",
+      "supplierInvoiceId": "2402-LD-GEA-INV00008",
       "supplierName": "Gear Up Motors",
+      "branch": "London",
       "orderDate": "2024-02-01",
       "receivedDate": "2024-02-05",
       "pendingAmount": "$350.00",
@@ -72,8 +80,9 @@
       "dueDate": "2024-02-15"
   },
   {
-      "supplierInvoiceId": "2403INV00009",
+      "supplierInvoiceId": "2403-TK-SPA-INV00009",
       "supplierName": "Spare Parts Hub",
+      "branch": "Tokyo",
       "orderDate": "2024-03-15",
       "receivedDate": "2024-03-20",
       "pendingAmount": "$800.00",
@@ -81,8 +90,9 @@
       "dueDate": "2024-03-30"
   },
   {
-      "supplierInvoiceId": "2402INV00010",
+      "supplierInvoiceId": "2402-TK-AUT-INV00010",
       "supplierName": "Auto Supplies Inc.",
+      "branch": "Tokyo",
       "orderDate": "2024-02-18",
       "receivedDate": "2024-02-23",
       "pendingAmount": "$450.00",
