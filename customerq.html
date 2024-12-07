@@ -196,7 +196,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editTransactionModalLabel">Edit Transaction</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close";></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ;></button>
                     </div>
                     <div class="modal-body">
                         <form id="editTransactionForm">
@@ -390,7 +390,8 @@
             </div>
         </div>
         <!-- View Transaction Modal -->
-        <div class="modal fade" id="viewTransactionModal" tabindex="-1" aria-labelledby="viewTransactionModalLabel" aria-hidden="true">
+        <div class="modal fade" id="viewTransactionModal" tabindex="-1" aria-labelledby="viewTransactionModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -426,7 +427,7 @@
                                 <input type="text" class="form-control" id="viewPlateNumber" readonly>
                             </div>
                         </div>
-        
+
                         <!-- Transaction Details -->
                         <h5>Transaction Details</h5>
                         <div class="row mb-3">
@@ -439,7 +440,7 @@
                                 <input type="text" class="form-control" id="viewSpecifyField" readonly>
                             </div>
                         </div>
-        
+
                         <!-- Parts and Materials Table -->
                         <h5>Parts and Materials</h5>
                         <table class="table table-bordered" id="viewMaterialsTable">
@@ -455,7 +456,7 @@
                                 <!-- Rows will be dynamically populated -->
                             </tbody>
                         </table>
-        
+
                         <!-- Service and Payment Details -->
                         <h5>Service and Payment Details</h5>
                         <div class="row mb-3">
@@ -474,7 +475,7 @@
                                 <input type="number" class="form-control" id="viewPendingAmount" readonly>
                             </div>
                         </div>
-        
+
                         <!-- Transaction Dates -->
                         <h5>Transaction Dates</h5>
                         <div class="row mb-3">
@@ -491,7 +492,7 @@
                 </div>
             </div>
         </div>
-        
+
 
         <script>
             function openEditModal(button) {
@@ -547,7 +548,7 @@
 
                     // Optionally update the main table or send data to the backend here
                     closeModal(document.getElementById('editTransactionModal'))
-                
+
                 };
             }
 
@@ -648,18 +649,18 @@
             fetch('customerdata.json')
                 .then(response => response.json())
                 .then(data => populateTable(data));
-        
+
             // If you're using inline JSON data
             // const data = [
             //     { id: "001", name: "John Doe", service: "Service", agent: "Jane Smith", status: "In Progress", statusClass: "bg-warning text-dark" },
             //     { id: "002", name: "Alice Johnson", service: "Consulting", agent: "Robert Brown", status: "Completed", statusClass: "bg-success" }
             // ];
             // populateTable(data);
-        
+
             function populateTable(data) {
                 const tbody = document.querySelector('tbody');
                 tbody.innerHTML = ""; // Clear any existing rows
-        
+
                 data.forEach(row => {
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
@@ -680,8 +681,24 @@
                     tbody.appendChild(tr);
                 });
             }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const customerQueueTableBody = document.querySelector('#customerQueueTable tbody');
+
+                // Initialize Sortable.js
+                new Sortable(customerQueueTableBody, {
+                    animation: 150, // Animation duration (ms)
+                    ghostClass: 'sortable-ghost', // Class name for the dragged item
+                    onEnd: function (event) {
+                        // Optional: Handle row reordering logic here
+                        console.log('Row moved from', event.oldIndex, 'to', event.newIndex);
+                    },
+                });
+            });
+
         </script>
-        
+        <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
 </body>
 
 </html>
